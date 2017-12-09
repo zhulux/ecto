@@ -7,3 +7,5 @@ deps:
   docker:
     - image: postgres:9.6.6-alpine
     - image: mysql:5.7.20
+      environment:
+        MYSQL_ALLOW_EMPTY_PASSWORD: true
