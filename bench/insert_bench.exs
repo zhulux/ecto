@@ -30,9 +30,12 @@ jobs = %{
   "insert_changeset" => fn repo -> repo.insert!(changeset) end
 }
 
+path = System.get_env("BENCHMARKING_RESULTS_PATH") || "bench/results"
+file = Path.join(path, "insert.json")
+
 Benchee.run(
   jobs,
   inputs: inputs,
   formatters: [Benchee.Formatters.JSON],
-  formatter_options: [json: [file: "bench/results/insert.json"]]
+  formatter_options: [json: [file: file]]
 )
